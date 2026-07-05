@@ -1,0 +1,267 @@
+{
+  "info": {
+    "name": "EcoCheck 2026 API",
+    "description": "Climate Action Tracking and Carbon Reduction Management System - API collection covering Users, Action Categories, Climate Actions, Goals, and User Actions.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080/ecocheck/api/v1" },
+    { "key": "userId", "value": "U001" },
+    { "key": "categoryId", "value": "AC-001" },
+    { "key": "climateActionId", "value": "CA-001" },
+    { "key": "goalId", "value": "G001" },
+    { "key": "userActionId", "value": "UA001" }
+  ],
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"U005\",\n  \"name\": \"Dilani Fernando\",\n  \"email\": \"dilani@mail.com\",\n  \"password\": \"pw5555\",\n  \"role\": \"USER\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/users", "host": [ "{{baseUrl}}" ], "path": [ "users" ] }
+          }
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/users", "host": [ "{{baseUrl}}" ], "path": [ "users" ] }
+          }
+        },
+        {
+          "name": "Get Selected User",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/users/{{userId}}", "host": [ "{{baseUrl}}" ], "path": [ "users", "{{userId}}" ] }
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PATCH",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"U001\",\n  \"name\": \"Kamal Silva Updated\",\n  \"email\": \"kamal.updated@mail.com\",\n  \"password\": \"pw1111\",\n  \"role\": \"ADMIN\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/users/{{userId}}", "host": [ "{{baseUrl}}" ], "path": [ "users", "{{userId}}" ] }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/users/{{userId}}", "host": [ "{{baseUrl}}" ], "path": [ "users", "{{userId}}" ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Action Category",
+      "item": [
+        {
+          "name": "Create Action Category",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"categoryId\": \"AC-005\",\n  \"name\": \"Transport\",\n  \"description\": \"Transportation related climate actions\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/action-category", "host": [ "{{baseUrl}}" ], "path": [ "action-category" ] }
+          }
+        },
+        {
+          "name": "Get All Action Categories",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/action-category", "host": [ "{{baseUrl}}" ], "path": [ "action-category" ] }
+          }
+        },
+        {
+          "name": "Get Selected Action Category",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/action-category/{{categoryId}}", "host": [ "{{baseUrl}}" ], "path": [ "action-category", "{{categoryId}}" ] }
+          }
+        },
+        {
+          "name": "Update Action Category",
+          "request": {
+            "method": "PATCH",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"categoryId\": \"AC-001\",\n  \"name\": \"Energy Saving Updated\",\n  \"description\": \"Updated description\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/action-category/{{categoryId}}", "host": [ "{{baseUrl}}" ], "path": [ "action-category", "{{categoryId}}" ] }
+          }
+        },
+        {
+          "name": "Delete Action Category",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/action-category/{{categoryId}}", "host": [ "{{baseUrl}}" ], "path": [ "action-category", "{{categoryId}}" ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Climate Action",
+      "item": [
+        {
+          "name": "Create Climate Action",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"climateActionId\": \"CA-005\",\n  \"title\": \"Reduce Meat Consumption\",\n  \"description\": \"Adopt a plant-based diet for at least 3 days a week\",\n  \"estimatedCO2Reduction\": 30.0,\n  \"points\": 12\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/climate-actions", "host": [ "{{baseUrl}}" ], "path": [ "climate-actions" ] }
+          }
+        },
+        {
+          "name": "Get All Climate Actions",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/climate-actions", "host": [ "{{baseUrl}}" ], "path": [ "climate-actions" ] }
+          }
+        },
+        {
+          "name": "Get Selected Climate Action",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/climate-actions/{{climateActionId}}", "host": [ "{{baseUrl}}" ], "path": [ "climate-actions", "{{climateActionId}}" ] }
+          }
+        },
+        {
+          "name": "Update Climate Action",
+          "request": {
+            "method": "PATCH",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"climateActionId\": \"CA-001\",\n  \"title\": \"Switch to LED Bulbs Updated\",\n  \"description\": \"Updated description\",\n  \"estimatedCO2Reduction\": 28.0,\n  \"points\": 12\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/climate-actions/{{climateActionId}}", "host": [ "{{baseUrl}}" ], "path": [ "climate-actions", "{{climateActionId}}" ] }
+          }
+        },
+        {
+          "name": "Delete Climate Action",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/climate-actions/{{climateActionId}}", "host": [ "{{baseUrl}}" ], "path": [ "climate-actions", "{{climateActionId}}" ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Goal",
+      "item": [
+        {
+          "name": "Create Goal",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"G005\",\n  \"title\": \"Reduce Energy Bill\",\n  \"targetReduction\": 150.0,\n  \"targetDate\": \"2026-12-01\",\n  \"status\": \"ACTIVE\",\n  \"userId\": \"U002\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/goals", "host": [ "{{baseUrl}}" ], "path": [ "goals" ] }
+          }
+        },
+        {
+          "name": "Get All Goals",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/goals", "host": [ "{{baseUrl}}" ], "path": [ "goals" ] }
+          }
+        },
+        {
+          "name": "Get Selected Goal",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/goals/{{goalId}}", "host": [ "{{baseUrl}}" ], "path": [ "goals", "{{goalId}}" ] }
+          }
+        },
+        {
+          "name": "Update Goal",
+          "request": {
+            "method": "PATCH",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"G001\",\n  \"title\": \"Reduce Household Carbon Footprint Updated\",\n  \"targetReduction\": 220.0,\n  \"targetDate\": \"2026-12-31\",\n  \"status\": \"ACTIVE\",\n  \"userId\": \"U001\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/goals/{{goalId}}", "host": [ "{{baseUrl}}" ], "path": [ "goals", "{{goalId}}" ] }
+          }
+        },
+        {
+          "name": "Delete Goal",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/goals/{{goalId}}", "host": [ "{{baseUrl}}" ], "path": [ "goals", "{{goalId}}" ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "User Action",
+      "item": [
+        {
+          "name": "Create User Action",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userActionId\": \"UA005\",\n  \"quantity\": 4,\n  \"totalReduction\": 100.0,\n  \"completedDate\": \"2026-06-25\",\n  \"userId\": \"U002\",\n  \"actionId\": \"CA-001\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/user-actions", "host": [ "{{baseUrl}}" ], "path": [ "user-actions" ] }
+          }
+        },
+        {
+          "name": "Get All User Actions",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/user-actions", "host": [ "{{baseUrl}}" ], "path": [ "user-actions" ] }
+          }
+        },
+        {
+          "name": "Get Selected User Action",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/user-actions/{{userActionId}}", "host": [ "{{baseUrl}}" ], "path": [ "user-actions", "{{userActionId}}" ] }
+          }
+        },
+        {
+          "name": "Update User Action",
+          "request": {
+            "method": "PATCH",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userActionId\": \"UA001\",\n  \"quantity\": 6,\n  \"totalReduction\": 150.0,\n  \"completedDate\": \"2026-06-28\",\n  \"userId\": \"U001\",\n  \"actionId\": \"CA-001\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/user-actions/{{userActionId}}", "host": [ "{{baseUrl}}" ], "path": [ "user-actions", "{{userActionId}}" ] }
+          }
+        },
+        {
+          "name": "Delete User Action",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/user-actions/{{userActionId}}", "host": [ "{{baseUrl}}" ], "path": [ "user-actions", "{{userActionId}}" ] }
+          }
+        }
+      ]
+    }
+  ]
+}
